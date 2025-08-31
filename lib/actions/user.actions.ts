@@ -117,7 +117,7 @@ export const getCurrentUser = async () => {
 
     return parseStringfy(user.documents[0]);
   } catch (error) {
-    handleError(error, "Failed to get current user");
+    console.log(error);
   }
 };
 
