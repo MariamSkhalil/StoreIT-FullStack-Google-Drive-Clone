@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import FileUploader from "@/components/FileUploader";
 import { logoutUser } from "@/lib/actions/user.actions";
+import { Search } from "@/components/Search";
 
 interface Props {
   $id: string;
@@ -73,10 +74,17 @@ const MobileNavigation = ({
             <Separator className={"mb-4 bg-light-200/20"} />
           </SheetTitle>
 
-          <nav className={"mobile-nav"}>
+          <Search />
+
+          <nav className={"mobile-nav pt-4"}>
             <ul className={"mobile-nav-list"}>
               {navItems.map(({ url, name, icon }) => (
-                <Link key={name} href={url} className={"lg:w-full"}>
+                <Link
+                  onClick={() => setIsOpen(false)}
+                  key={name}
+                  href={url}
+                  className={"lg:w-full"}
+                >
                   <li /* `sidebar-nav-item ${pathname === url && "shad-active"}` */
                     className={cn(
                       "mobile-nav-item",
